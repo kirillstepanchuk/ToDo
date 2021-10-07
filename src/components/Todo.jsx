@@ -4,7 +4,7 @@ import { MdDone } from 'react-icons/md'
 import { BiUndo } from 'react-icons/bi'
 import TodoForm from './TodoForm'
 
-function Todo(props) {
+const Todo = (props) => {
     const [edit, setEdit] = useState({
         id: null,
         value: ''

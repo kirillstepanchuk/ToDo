@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BiListUl } from 'react-icons/bi'
 import { CgPlayListCheck, CgPlayListRemove } from 'react-icons/cg'
 
-function TodoFilters({ todos, setCurrentTodos }) {
+const TodoFilters = ({ todos, setCurrentTodos }) => {
     const [doneCount, setDoneCount] = useState(0);
     const [undoneCount, setUndoneCount] = useState(0);
     const [allCount, setAllCount] = useState(0);

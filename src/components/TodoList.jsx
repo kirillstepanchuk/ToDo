@@ -3,7 +3,7 @@ import TodoForm from './TodoForm';
 import Todo from './Todo';
 import TodoFilters from "./TodoFilters";
 
-function TodoList() {
+const TodoList = () => {
     const [todos, setTodos] = useState([]);
     const [currentTodos, setCurrentTodos] = useState([]);
 

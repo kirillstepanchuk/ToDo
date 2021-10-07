@@ -1,7 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 
-function App() {
+const App = () => {
     return (
         <section>
             <div className='main-block__info'>
@@ -9,7 +9,7 @@ function App() {
                 <p>Enter a task below for adding it to list of todo's</p>
             </div>
             <TodoList />
-        </section>     
+        </section>
     )
 }
 
