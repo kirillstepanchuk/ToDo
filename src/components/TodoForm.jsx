@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 
-const TodoForm = (props) => {
+const TodoForm = ({onSubmit, edit}) => {
     const [input, setInput] = useState('');
     const [todoId, setTodoId] = useState(1);
     
@@ -23,7 +24,7 @@ const TodoForm = (props) => {
             text: input,
         };
 
-        props.onSubmit(newTodo);
+        onSubmit(newTodo);
     
         setInput('');
     }
@@ -31,14 +32,14 @@ const TodoForm = (props) => {
     return (
         <section className='tasks'>
             <form className='task-form' onSubmit={handleSubmit}>
-                {props.edit ? (
+                {edit ? (
                     <>
                         <input
+                            className='task-input update'
                             placeholder='Update your item'
                             value={input}
                             onChange={handleChange}
                             name='text'
-                            className='task-input update'
                             maxLength='30'
                         />
                         <button className='task-input__add-button update'>
@@ -48,10 +49,10 @@ const TodoForm = (props) => {
                 ) : (
                     <>
                         <input 
+                            className='task-input' 
                             type='text' 
                             placeholder='Your task' 
                             value={input} 
-                            className='task-input' 
                             onChange={handleChange}
                             maxLength='30'
                         />
@@ -64,6 +65,11 @@ const TodoForm = (props) => {
         </section>
     
     )
+}
+
+TodoForm.propTypes = {
+    onSubmit: PropTypes.func, 
+    edit: PropTypes.object, 
 }
 
 export default TodoForm

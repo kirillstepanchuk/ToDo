@@ -3,6 +3,7 @@ import TodoForm from './TodoForm';
 import Todo from './Todo';
 import TodoFilters from "./TodoFilters";
 
+
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
     const [currentTodos, setCurrentTodos] = useState([]);
@@ -24,6 +25,7 @@ const TodoList = () => {
         });
 
         setTodos(removeItem);
+        setCurrentTodos(removeItem);
     }
 
     const changeTodoState = id => {
@@ -33,7 +35,8 @@ const TodoList = () => {
             }
             return todo
         })
-        setTodos(checkTodo)
+        setTodos(checkTodo);
+        setCurrentTodos(checkTodo);
     }
 
     const updateTodo = (todoId, newValue) => {
@@ -42,6 +45,7 @@ const TodoList = () => {
         }
 
         setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
+        setCurrentTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
     }
 
     return (
